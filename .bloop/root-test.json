@@ -1,0 +1,591 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "root-test",
+        "directory": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network",
+        "workspaceDir": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network",
+        "sources": [
+            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\scala",
+            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\scala-2.13",
+            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\scala-2",
+            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\java",
+            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\target\\scala-2.13\\src_managed\\test"
+        ],
+        "dependencies": [
+            "root"
+        ],
+        "classpath": [
+            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\.bloop\\root\\scala-2.13\\classes",
+            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\lib\\jFuzzyLogic_1_2_1.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.13.3\\scala-library-2.13.3.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest_2.13\\3.2.2\\scalatest_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalafx\\scalafx_2.13\\14-R19\\scalafx_2.13-14-R19.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-base\\14.0.1\\javafx-base-14.0.1-win.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-controls\\14.0.1\\javafx-controls-14.0.1-win.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-fxml\\14.0.1\\javafx-fxml-14.0.1-win.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-graphics\\14.0.1\\javafx-graphics-14.0.1-win.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-media\\14.0.1\\javafx-media-14.0.1-win.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-swing\\14.0.1\\javafx-swing-14.0.1-win.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-web\\14.0.1\\javafx-web-14.0.1-win.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-core_2.13\\3.2.2\\scalatest-core_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-featurespec_2.13\\3.2.2\\scalatest-featurespec_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-flatspec_2.13\\3.2.2\\scalatest-flatspec_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-freespec_2.13\\3.2.2\\scalatest-freespec_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-funsuite_2.13\\3.2.2\\scalatest-funsuite_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-funspec_2.13\\3.2.2\\scalatest-funspec_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-propspec_2.13\\3.2.2\\scalatest-propspec_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-refspec_2.13\\3.2.2\\scalatest-refspec_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-wordspec_2.13\\3.2.2\\scalatest-wordspec_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-diagrams_2.13\\3.2.2\\scalatest-diagrams_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-matchers-core_2.13\\3.2.2\\scalatest-matchers-core_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-shouldmatchers_2.13\\3.2.2\\scalatest-shouldmatchers_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-mustmatchers_2.13\\3.2.2\\scalatest-mustmatchers_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-reflect\\2.13.3\\scala-reflect-2.13.3.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-graphics\\14.0.1\\javafx-graphics-14.0.1.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-controls\\14.0.1\\javafx-controls-14.0.1.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-base\\14.0.1\\javafx-base-14.0.1.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-media\\14.0.1\\javafx-media-14.0.1.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-compatible\\3.2.2\\scalatest-compatible-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalactic\\scalactic_2.13\\3.2.2\\scalactic_2.13-3.2.2.jar",
+            "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-xml_2.13\\1.2.0\\scala-xml_2.13-1.2.0.jar"
+        ],
+        "out": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\.bloop\\root",
+        "classesDir": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\.bloop\\root\\scala-2.13\\test-classes",
+        "resources": [
+            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\resources",
+            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\target\\scala-2.13\\resource_managed\\test"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.13.3",
+            "options": [
+                
+            ],
+            "jars": [
+                "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-compiler\\2.13.3\\scala-compiler-2.13.3.jar",
+                "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.13.3\\scala-library-2.13.3.jar",
+                "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-reflect\\2.13.3\\scala-reflect-2.13.3.jar",
+                "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jline\\jline\\3.15.0\\jline-3.15.0.jar",
+                "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\net\\java\\dev\\jna\\jna\\5.3.1\\jna-5.3.1.jar"
+            ],
+            "analysis": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\target\\streams\\test\\bloopAnalysisOut\\_global\\streams\\inc_compile_2.13.zip",
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "C:\\Program Files\\Java\\jdk-13.0.1",
+                "options": [
+                    "-Duser.dir=C:\\Users\\Radek\\git\\PSI\\fuzzy-network"
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.13.3\\scala-library-2.13.3.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.13.3\\scala-library-2.13.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalafx",
+                    "name": "scalafx_2.13",
+                    "version": "14-R19",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalafx_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalafx\\scalafx_2.13\\14-R19\\scalafx_2.13-14-R19.jar"
+                        },
+                        {
+                            "name": "scalafx_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalafx\\scalafx_2.13\\14-R19\\scalafx_2.13-14-R19-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-reflect",
+                    "version": "2.13.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-reflect",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-reflect\\2.13.3\\scala-reflect-2.13.3.jar"
+                        },
+                        {
+                            "name": "scala-reflect",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-reflect\\2.13.3\\scala-reflect-2.13.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.openjfx",
+                    "name": "javafx-graphics",
+                    "version": "14.0.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "javafx-graphics",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-graphics\\14.0.1\\javafx-graphics-14.0.1.jar"
+                        },
+                        {
+                            "name": "javafx-graphics",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-graphics\\14.0.1\\javafx-graphics-14.0.1-sources.jar"
+                        },
+                        {
+                            "name": "javafx-graphics",
+                            "classifier": "win",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-graphics\\14.0.1\\javafx-graphics-14.0.1-win.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.openjfx",
+                    "name": "javafx-controls",
+                    "version": "14.0.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "javafx-controls",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-controls\\14.0.1\\javafx-controls-14.0.1.jar"
+                        },
+                        {
+                            "name": "javafx-controls",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-controls\\14.0.1\\javafx-controls-14.0.1-sources.jar"
+                        },
+                        {
+                            "name": "javafx-controls",
+                            "classifier": "win",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-controls\\14.0.1\\javafx-controls-14.0.1-win.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.openjfx",
+                    "name": "javafx-base",
+                    "version": "14.0.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "javafx-base",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-base\\14.0.1\\javafx-base-14.0.1.jar"
+                        },
+                        {
+                            "name": "javafx-base",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-base\\14.0.1\\javafx-base-14.0.1-sources.jar"
+                        },
+                        {
+                            "name": "javafx-base",
+                            "classifier": "win",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-base\\14.0.1\\javafx-base-14.0.1-win.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.openjfx",
+                    "name": "javafx-media",
+                    "version": "14.0.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "javafx-media",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-media\\14.0.1\\javafx-media-14.0.1.jar"
+                        },
+                        {
+                            "name": "javafx-media",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-media\\14.0.1\\javafx-media-14.0.1-sources.jar"
+                        },
+                        {
+                            "name": "javafx-media",
+                            "classifier": "win",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\openjfx\\javafx-media\\14.0.1\\javafx-media-14.0.1-win.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.3",
+                    "configurations": "optional",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.13.3\\scala-library-2.13.3.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.13.3\\scala-library-2.13.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest_2.13\\3.2.2\\scalatest_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest_2.13\\3.2.2\\scalatest_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-core_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-core_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-core_2.13\\3.2.2\\scalatest-core_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-core_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-core_2.13\\3.2.2\\scalatest-core_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-featurespec_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-featurespec_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-featurespec_2.13\\3.2.2\\scalatest-featurespec_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-featurespec_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-featurespec_2.13\\3.2.2\\scalatest-featurespec_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-flatspec_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-flatspec_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-flatspec_2.13\\3.2.2\\scalatest-flatspec_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-flatspec_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-flatspec_2.13\\3.2.2\\scalatest-flatspec_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-freespec_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-freespec_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-freespec_2.13\\3.2.2\\scalatest-freespec_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-freespec_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-freespec_2.13\\3.2.2\\scalatest-freespec_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-funsuite_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-funsuite_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-funsuite_2.13\\3.2.2\\scalatest-funsuite_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-funsuite_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-funsuite_2.13\\3.2.2\\scalatest-funsuite_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-funspec_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-funspec_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-funspec_2.13\\3.2.2\\scalatest-funspec_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-funspec_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-funspec_2.13\\3.2.2\\scalatest-funspec_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-propspec_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-propspec_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-propspec_2.13\\3.2.2\\scalatest-propspec_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-propspec_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-propspec_2.13\\3.2.2\\scalatest-propspec_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-refspec_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-refspec_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-refspec_2.13\\3.2.2\\scalatest-refspec_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-refspec_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-refspec_2.13\\3.2.2\\scalatest-refspec_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-wordspec_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-wordspec_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-wordspec_2.13\\3.2.2\\scalatest-wordspec_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-wordspec_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-wordspec_2.13\\3.2.2\\scalatest-wordspec_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-diagrams_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-diagrams_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-diagrams_2.13\\3.2.2\\scalatest-diagrams_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-diagrams_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-diagrams_2.13\\3.2.2\\scalatest-diagrams_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-matchers-core_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-matchers-core_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-matchers-core_2.13\\3.2.2\\scalatest-matchers-core_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-matchers-core_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-matchers-core_2.13\\3.2.2\\scalatest-matchers-core_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-shouldmatchers_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-shouldmatchers_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-shouldmatchers_2.13\\3.2.2\\scalatest-shouldmatchers_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-shouldmatchers_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-shouldmatchers_2.13\\3.2.2\\scalatest-shouldmatchers_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-mustmatchers_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-mustmatchers_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-mustmatchers_2.13\\3.2.2\\scalatest-mustmatchers_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-mustmatchers_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-mustmatchers_2.13\\3.2.2\\scalatest-mustmatchers_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalatest",
+                    "name": "scalatest-compatible",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalatest-compatible",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-compatible\\3.2.2\\scalatest-compatible-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalatest-compatible",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-compatible\\3.2.2\\scalatest-compatible-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalactic",
+                    "name": "scalactic_2.13",
+                    "version": "3.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalactic_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalactic\\scalactic_2.13\\3.2.2\\scalactic_2.13-3.2.2.jar"
+                        },
+                        {
+                            "name": "scalactic_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalactic\\scalactic_2.13\\3.2.2\\scalactic_2.13-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-xml_2.13",
+                    "version": "1.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-xml_2.13",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-xml_2.13\\1.2.0\\scala-xml_2.13-1.2.0.jar"
+                        },
+                        {
+                            "name": "scala-xml_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-xml_2.13\\1.2.0\\scala-xml_2.13-1.2.0-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "test"
+        ]
+    }
+}
