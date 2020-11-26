@@ -23,17 +23,18 @@ object Bot{
 }
 
 object ParamsForFuzzyRuleSet{
-    def getOccurencesOfValue(dices:List[Int]) = {
-        var occurences = Array.fill[Int](6)(0)
-        dices.foldRight(occurences)((x,acc) => {
-            acc(x-1)+=1
-            acc
+    def getOccurencesOfValue(dices:List[Int]):Map[Int,Int] = {
+        val occurences = collection.mutable.Map[Int,Int]()
+        for(elem <- dices) occurences.updateWith(elem)({
+            case Some(count) => Some(count+1)
+            case None => Some(1)
         })
+        occurences.toMap
     }
     val special = Array(1,5)
-    def getHowManyValuesRepeat(occurences:Array[Int]): Int = occurences.filter(elem => elem>2).sum
-    def getWhatRepeatMostOfTime(occurences:Array[Int]): Int = occurences.zipWithIndex.foldRight((0,0))(
-        (x:(Int,Int),acc:(Int,Int)) => if (x._2>acc._2 || (x._1==4 && x._2==acc._2)) x else acc)._1+1
+    def getHowManyValuesRepeat(occurences:Map[Int,Int]): Int = occurences.filter(elem => elem._2>2).map(elem => elem._2).sum
+    def getWhatRepeatMostOfTime(occurences:Map[Int,Int]): Int = occurences.foldRight((0,0))(
+        (x:(Int,Int),acc:(Int,Int)) => if (x._2>acc._2 || (x._1==5 && x._2==acc._2)) x else acc)._1
 }
 
 class Bot() extends Player{
@@ -43,17 +44,17 @@ class Bot() extends Player{
 
     def getScore: Int = score
 
-    def findMaximalMove(occurences:Array[Int]) = occurences
-                                            .zipWithIndex
-                                            .filter((tuple:(Int,Int)) => tuple._2>=3 || Array(1,5).contains(tuple._1+1))
-                                            .map(elem => elem._1+1).toList
+    def findMaximalMove(occurences:Map[Int,Int]):List[Int] = occurences
+                                            .filter((tuple:(Int,Int)) => tuple._2>=3 || Array(1,5).contains(tuple._1))
+                                            .map(elem => List.fill(elem._2)(elem._1))
+                                            .foldRight(List[Int]())((x,acc) => acc++x)
 
-    def findMinimalMove(occurences:Array[Int]) = if (occurences(0) != 0) List(1)
-                                                    else if(occurences(4) != 0)List(5)
+    def findMinimalMove(occurences:Map[Int,Int]) = if (occurences.isDefinedAt(1)) List(1)
+                                                    else if(occurences.isDefinedAt(5))List(5)
                                                     else  occurences
-                                                        .zipWithIndex
                                                         .filter((tuple:(Int,Int)) => tuple._2>=3)
-                                                        .map(elem => elem._1+1).toList
+                                                        .map(elem => List.fill(elem._2)(elem._1))
+                                                        .foldRight(List[Int]())((x,acc) => acc++x)
 
 
     def makeMove(dices:List[Int]) = {
@@ -68,7 +69,7 @@ class Bot() extends Player{
         fuzzyRuleSet.setVariable(Bot.param4,dices.size)
         fuzzyRuleSet.evaluate()
         fuzzyRuleSet.getVariable(Bot.result).defuzzify() match {
-            case x if x <= -10  => Finish(findMinimalMove(occurencesArr))
+            case x if x <= -10  => Finish(findMaximalMove(occurencesArr))
             case x if x <= 0  => Finish(findMinimalMove(occurencesArr))
             case x if x <= 10  => RollAgain(findMinimalMove(occurencesArr))
             case x  => RollAgain(findMaximalMove(occurencesArr))

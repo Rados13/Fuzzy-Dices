@@ -4,6 +4,7 @@ import scalafx.scene.canvas.{Canvas,GraphicsContext}
 import scalafx.scene.paint.Color
 import javafx.animation.AnimationTimer
 import scala.util.Random
+import java.util.concurrent.CountDownLatch
 
 object MapPainter{
 
@@ -63,6 +64,7 @@ class MapPainter(gc:GraphicsContext){
     }
 
     def drawBoard(nums:List[Int]) = {
+        gc.clearRect(getStartMarginH,getStartMarginV,getWidth,getHeight)
         val startX = getStartMarginH
         val startY = getStartMarginV
         val width = getWidth
@@ -107,8 +109,8 @@ class MapPainter(gc:GraphicsContext){
         }
     }
 
-    def startAnimation(howLongSeconds:Long) = {
-        val animation = new AnimationTimer{
+    def startAnimation(howLongSeconds:Long,length:Int,latch:CountDownLatch) = {
+        new AnimationTimer{
             var startTime: Long = 0
             var lastUpdate: Long = 0
             @Override
@@ -116,15 +118,16 @@ class MapPainter(gc:GraphicsContext){
                 if(startTime==0)startTime=now
                 if(now-startTime>=howLongSeconds*1_000_000_000) {
                     stop()
+                    latch.countDown()
                 }
                 else if(now - lastUpdate >= 50_000_000){
-                    gc.clearRect(getStartMarginH,getStartMarginV,getWidth,getHeight)
-                    drawBoard(Seq.fill(6)(Random.nextInt(5)+1).toList)
+                    drawBoard(Seq.fill(length)(Random.nextInt(5)+1).toList)
                     lastUpdate = now
                 }
             }
-        }
-        animation.start()
+        }.start()
     }
+
+    
 
 }

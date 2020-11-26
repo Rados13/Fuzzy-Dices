@@ -2,21 +2,21 @@
     "version": "1.4.0",
     "project": {
         "name": "root-test",
-        "directory": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network",
-        "workspaceDir": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network",
+        "directory": "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices",
+        "workspaceDir": "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices",
         "sources": [
-            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\scala",
-            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\scala-2.13",
-            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\scala-2",
-            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\java",
-            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\target\\scala-2.13\\src_managed\\test"
+            "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\src\\test\\scala",
+            "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\src\\test\\scala-2.13",
+            "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\src\\test\\scala-2",
+            "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\src\\test\\java",
+            "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\target\\scala-2.13\\src_managed\\test"
         ],
         "dependencies": [
             "root"
         ],
         "classpath": [
-            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\.bloop\\root\\scala-2.13\\classes",
-            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\lib\\jFuzzyLogic_1_2_1.jar",
+            "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\.bloop\\root\\scala-2.13\\classes",
+            "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\lib\\jFuzzyLogic_1_2_1.jar",
             "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.13.3\\scala-library-2.13.3.jar",
             "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest_2.13\\3.2.2\\scalatest_2.13-3.2.2.jar",
             "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalafx\\scalafx_2.13\\14-R19\\scalafx_2.13-14-R19.jar",
@@ -49,11 +49,11 @@
             "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalactic\\scalactic_2.13\\3.2.2\\scalactic_2.13-3.2.2.jar",
             "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-xml_2.13\\1.2.0\\scala-xml_2.13-1.2.0.jar"
         ],
-        "out": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\.bloop\\root",
-        "classesDir": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\.bloop\\root\\scala-2.13\\test-classes",
+        "out": "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\.bloop\\root",
+        "classesDir": "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\.bloop\\root\\scala-2.13\\test-classes",
         "resources": [
-            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\src\\test\\resources",
-            "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\target\\scala-2.13\\resource_managed\\test"
+            "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\src\\test\\resources",
+            "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\target\\scala-2.13\\resource_managed\\test"
         ],
         "scala": {
             "organization": "org.scala-lang",
@@ -69,7 +69,7 @@
                 "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jline\\jline\\3.15.0\\jline-3.15.0.jar",
                 "C:\\Users\\Radek\\AppData\\Local\\Coursier\\cache\\v1\\https\\repo1.maven.org\\maven2\\net\\java\\dev\\jna\\jna\\5.3.1\\jna-5.3.1.jar"
             ],
-            "analysis": "C:\\Users\\Radek\\git\\PSI\\fuzzy-network\\target\\streams\\test\\bloopAnalysisOut\\_global\\streams\\inc_compile_2.13.zip",
+            "analysis": "C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices\\target\\streams\\test\\bloopAnalysisOut\\_global\\streams\\inc_compile_2.13.zip",
             "setup": {
                 "order": "mixed",
                 "addLibraryToBootClasspath": true,
@@ -128,7 +128,7 @@
             "config": {
                 "home": "C:\\Program Files\\Java\\jdk-13.0.1",
                 "options": [
-                    "-Duser.dir=C:\\Users\\Radek\\git\\PSI\\fuzzy-network"
+                    "-Duser.dir=C:\\Users\\Radek\\git\\PSI\\Fuzzy-Dices"
                 ]
             },
             "mainClass": [

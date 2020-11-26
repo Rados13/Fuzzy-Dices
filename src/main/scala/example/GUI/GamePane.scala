@@ -29,7 +29,6 @@ object GamePane{
         @Override
         def invalidated(o: Observable) = {
             println(s"Changed size ${gameCanvas.getWidth()}  ${gameCanvas.getHeight()}")
-            mapPainter.startAnimation(2)
         }
     }
 
@@ -37,8 +36,7 @@ object GamePane{
     gameCanvas.height.addListener(listener)
 
 
-
-    def apply(goBack: ()=>Unit)={
+    def apply(goBack: ()=>Unit) ={
         val grid: GridPane = new GridPane()
         grid.setPadding(Insets(10, 10, 10, 10))
         grid.setVgap(10)
