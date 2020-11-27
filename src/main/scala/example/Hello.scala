@@ -15,6 +15,8 @@ import example.GUI.MainPane
 import example.GUI.GamePane
 import example.Logic.Game
 import javafx.concurrent.Task
+import example.Logic.GameStatus
+import example.Logic.HumanPlayer
 
 // https://www.gry-online.pl/S024.asp?ID=1859&PART=122
 
@@ -23,7 +25,8 @@ object Hello extends JFXApp {
 
   val widthValue: Double = 1280
   val heightValue: Double = 720
-  var gameThread: Thread = null
+  var game: Game = null
+  var player:HumanPlayer = null
 
   var gameCanvas:Canvas = new Canvas(){
     layoutY=0
@@ -40,27 +43,55 @@ object Hello extends JFXApp {
   }
 
   def startMenu(): Unit = {
+    if(game!=null) game.status = GameStatus.Ended
+    if(player!=null) player.isSelected = true
     mainScene.root = MainPane(startSimulation,startGame)
-    if(gameThread!=null)gameThread.interrupt()
   }
+
+
+  
 
   def startSimulation(): Unit = {
     println("Start simulation")
-    val gamePane = GamePane(startMenu)
+    game = Game.startSimulation(GamePane.mapPainter)
+    val task = new Task[Unit]{ override def call(): Unit = game.startGame()}
+    val btnsFunctions:Array[() => Unit] = Array(
+      startMenu,
+      () => {game.status = game.status match {
+        case GameStatus.Run => GameStatus.Stoped
+        case GameStatus.Stoped => GameStatus.Run
+        case _ => GameStatus.Ended
+      }}
+    )
+    val gamePane = GamePane(btnsFunctions)
     mainScene.root = gamePane
-    val task = new Task[Unit]{
-       override def call(): Unit = {
-          val game = new Game(GamePane.mapPainter)
-          game.startGame()
-      }
-    }
-    gameThread = new Thread(task)
+
+    val gameThread = new Thread(task)
     gameThread.start()
 
   }
 
   def startGame(): Unit = {
     println("Start game")
+    val result:(Game,HumanPlayer) = Game.startGame(GamePane.mapPainter)
+    game = result._1
+    player = result._2
+    val task = new Task[Unit]{ override def call(): Unit = game.startGame()}
+    val btnsFunctions:Array[() => Unit] = Array(
+      startMenu,
+      () => {game.status = game.status match {
+        case GameStatus.Run => GameStatus.Stoped
+        case GameStatus.Stoped => GameStatus.Run
+        case _ => GameStatus.Ended
+      }}
+    )
+
+    val gamePane = GamePane(btnsFunctions,player)
+    mainScene.root = gamePane
+
+    val gameThread = new Thread(task)
+    gameThread.start()
+    
   }
 
   stage = new PrimaryStage {

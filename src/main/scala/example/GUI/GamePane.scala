@@ -11,6 +11,12 @@ import javafx.beans.InvalidationListener
 import javafx.beans.Observable
 import javafx.scene.layout.ColumnConstraints
 import javafx.scene.layout.RowConstraints
+import scalafx.scene.layout.HBox
+import javafx.geometry.Pos
+import collection.JavaConverters._
+import example.Logic.HumanPlayer
+import example.Logic.RollAgain
+import example.Logic.Finish
 
 object GamePane{
 
@@ -35,18 +41,70 @@ object GamePane{
     gameCanvas.width.addListener(listener)
     gameCanvas.height.addListener(listener)
 
+    mapPainter.addClickListener()
 
-    def apply(goBack: ()=>Unit) ={
+
+    val btnResumeText = "Resume simulation"
+    val btnStopText = "Stop simulation"
+
+    def setUpGriPane():GridPane = {
         val grid: GridPane = new GridPane()
+
         grid.setPadding(Insets(10, 10, 10, 10))
         grid.setVgap(10)
         grid.setHgap(10)
-        val button1 = new Button("Back to menu")
-        val elems = List(gameCanvas, button1)
-        
+        grid
+    }
+
+    def createButtonsHbox(functions:Array[()=> Unit],player:HumanPlayer):HBox = {
+        val btnBack = new Button("Back to menu")
+        val btnStop = new Button(btnStopText)
+        var btnList:List[javafx.scene.Node] = List(btnBack,btnStop)
+
+
+        btnBack.onAction = (e: ActionEvent) => {functions(0)()}
+        btnStop.onAction = (e: ActionEvent) => {
+            functions(1)()
+            btnStop.text.set(if(btnStop.text.get()==btnResumeText) btnStopText else btnResumeText )
+        }
+
+        if(player!=null){
+            val btnRoll = new Button("Roll next")
+            val btnEnd = new Button("End rolling")
+            btnRoll.onAction = (e:ActionEvent) => {
+                val selectedDices = mapPainter.getSelectedDices()
+                if(player.checkIfPossibleToTake(selectedDices)){
+                    player.setMove(RollAgain(selectedDices))
+                    player.isSelected = true
+                }
+            }   
+            btnEnd.onAction = (e:ActionEvent) => {
+                val selectedDices = mapPainter.getSelectedDices()
+                if(player.checkIfPossibleToTake(selectedDices)){
+                    player.setMove(Finish(selectedDices))
+                    player.isSelected = true
+                }
+            }
+            btnList = btnList ++ List(btnRoll,btnEnd)    
+        }
+
+
+        val hbox = new HBox()
+        hbox.setAlignment(Pos.CENTER)
+        hbox.setSpacing(50)
+        hbox.getChildren().addAll(btnList.asJavaCollection)
+        hbox
+    }
+
+    def apply(btnsFunctions: Array[()=>Unit],player:HumanPlayer = null) ={
+        val grid = setUpGriPane()
+        val hbox = createButtonsHbox(btnsFunctions,player)
+        val elems = List(gameCanvas, hbox)
+
         gameCanvas.width.bind(grid.widthProperty())
         gameCanvas.height.bind(grid.heightProperty()*0.9)
-        button1.onAction = (e: ActionEvent) => {goBack()}
+        
+
         for (elem <- elems) {grid.add(elem, 0, elems.indexOf(elem))}
         gridConstraints(grid)
         grid.setAlignment(Center)
@@ -54,6 +112,7 @@ object GamePane{
     }
 
     def gridConstraints(grid: GridPane) = {
+
         val colConstraint = new ColumnConstraints();
         colConstraint.setPercentWidth(100)
         grid.getColumnConstraints().add(colConstraint)
@@ -62,5 +121,6 @@ object GamePane{
         val buttonsConstraint = new RowConstraints()
         buttonsConstraint.setPercentHeight(10)
         grid.getRowConstraints().addAll(canvasConstraint,buttonsConstraint)
+
     }
 }

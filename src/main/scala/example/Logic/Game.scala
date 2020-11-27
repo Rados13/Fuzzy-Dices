@@ -4,14 +4,25 @@ import example.GUI.MapPainter
 import scala.util.Random
 import java.util.concurrent.CountDownLatch
 
+object GameStatus extends Enumeration{
+    type GameStatus = Value
+    val Stoped, Run, Ended = Value
+}
 
+object Game{
+    def startSimulation(mapPainter:MapPainter)= new Game(mapPainter,new Bot(),new Bot())
 
+    def startGame(mapPainter:MapPainter):(Game,HumanPlayer) = {
+        val humanPlayer = new HumanPlayer()
+        (new Game(mapPainter,humanPlayer,new Bot()),humanPlayer)
+    }
 
-class Game(mapPainter: MapPainter){
-    var player1:Player = new Bot()
-    var player2:Player = new Bot()
-    var turn:Int = 0
+}
+
+class Game(mapPainter: MapPainter,player1:Player,player2:Player){
+    var turn:Int = 1
     var temporaryScore = 0
+    var status = GameStatus.Run
 
     def nextTurn(isSafed:Boolean = false) = {
         if(isSafed){
@@ -22,33 +33,46 @@ class Game(mapPainter: MapPainter){
         turn+=1
     }
 
+    def updateData = {
+        mapPainter.isFirstPlayerTurn = turn%2==1
+        mapPainter.scores = Array(player1.getScore,player2.getScore,temporaryScore)
+    }
 
     def startGame() = {
-        while (player1.getScore<20000 && player2.getScore<20000){
-            println(s"Turn: $turn")
+        while (player1.getScore<20000 && player2.getScore<20000 && status!=GameStatus.Ended){
             var activePlayer = if(turn%2==1)player1 else player2
+
             var diceNum:Option[Int] = Some(6)
             while(diceNum.isDefined){
-                val dices = Seq.fill(diceNum.get)(Random.nextInt(5)+1).toList
-                println(s"Dices randomed ${dices.mkString(" ")}")
-                val latch = new CountDownLatch(1)
-                mapPainter.startAnimation(2,dices.length,latch)
-                latch.await()
-                mapPainter.drawBoard(dices)
-                Thread.sleep(2000)
-                if(!isPossibleMove(dices)) diceNum = None
-                (diceNum,activePlayer.makeMove(dices)) match {
-                    case (None,_) => 
-                        nextTurn()
-                        diceNum = None
-                    case (Some(value),Finish(dices)) => 
-                        calculateScore(dices)
-                        nextTurn(true)
-                        diceNum = None
-                    case (Some(value),RollAgain(dices)) => 
-                        calculateScore(dices)
-                        diceNum = Some(if (value-dices.size==0) 6 else value-dices.size)
-                }    
+                // println(s"Turn $turn:  $status")
+                status match {
+                    case GameStatus.Run =>
+                        val dices = Seq.fill(diceNum.get)(Random.nextInt(5)+1).toList
+                        // println(s"Dices randomed ${dices.mkString(" ")}")
+                        val latch = new CountDownLatch(1)
+                        updateData
+                        mapPainter.startAnimation(2,dices.length,latch)
+                        latch.await()
+                        mapPainter.drawBoard(dices)
+                        Thread.sleep(2000)
+                        if(!isPossibleMove(dices)) diceNum = None
+                        (diceNum,activePlayer.makeMove(dices)) match {
+                            case (_,null) =>
+                                diceNum = None
+                            case (None,_) => 
+                                nextTurn()
+                                diceNum = None
+                            case (Some(value),Finish(dices)) => 
+                                calculateScore(dices)
+                                nextTurn(true)
+                                diceNum = None
+                            case (Some(value),RollAgain(dices)) => 
+                                calculateScore(dices)
+                                diceNum = Some(if (value-dices.size==0) 6 else value-dices.size)
+                        }
+                    case GameStatus.Ended => diceNum = None
+                    case _ => 
+                }
             }
         }
         println("End of simulation")
