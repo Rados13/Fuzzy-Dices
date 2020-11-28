@@ -62,6 +62,8 @@ class Game(mapPainter: MapPainter,player1:Player,player2:Player){
                             case (None,_) => 
                                 nextTurn()
                                 diceNum = None
+                                mapPainter.drawAlert()
+                                Thread.sleep(2000)
                             case (Some(value),Finish(dices)) => 
                                 calculateScore(dices)
                                 nextTurn(true)

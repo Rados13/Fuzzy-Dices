@@ -25,8 +25,8 @@ object MapPainter{
 
 class MapPainter(gc:GraphicsContext){
 
-    def getStartMarginH = MapPainter.getWidth/20 
-    def getStartMarginV = MapPainter.getHeight/20 
+    def getStartMarginH = MapPainter.getWidth/10 
+    def getStartMarginV = MapPainter.getHeight/10 
     def getWidth = MapPainter.getWidth() - 2*getStartMarginH
     def getHeight = MapPainter.getHeight() - 2*getStartMarginV 
 
@@ -39,18 +39,23 @@ class MapPainter(gc:GraphicsContext){
     gc.setFont(standardFont)
 
     def drawText = {
-            isFirstPlayerTurn match {
-                case true => 
-                    gc.setFill(Color.Blue)
-                    gc.fillText(s"Player 1: ${scores(0)} + ${scores(2)}",10,50)
-                    gc.setFill(Color.Black)
-                    gc.fillText(s"Player 2: ${scores(1)}",10,80)
-                case false => 
-                    gc.setFill(Color.Blue)
-                    gc.fillText(s"Player 2: ${scores(1)} + ${scores(2)}",10,80)
-                    gc.setFill(Color.Black)
-                    gc.fillText(s"Player 1: ${scores(0)}",10,50)
+        isFirstPlayerTurn match {
+            case true => 
+                gc.setFill(Color.Blue)
+                gc.fillText(s"Player 1: ${scores(0)} + ${scores(2)}",10,50)
+                gc.setFill(Color.Black)
+                gc.fillText(s"Player 2: ${scores(1)}",10,80)
+            case false => 
+                gc.setFill(Color.Blue)
+                gc.fillText(s"Player 2: ${scores(1)} + ${scores(2)}",10,80)
+                gc.setFill(Color.Black)
+                gc.fillText(s"Player 1: ${scores(0)}",10,50)
             }    
+    }
+
+    def drawAlert(text:String = "Miss") = {
+        gc.clearRect(10,110,30,getStartMarginH)
+        gc.fillText(s"$text",10,110)
     }
 
     def clearBoard = {
@@ -201,11 +206,15 @@ class MapPainter(gc:GraphicsContext){
         }.start()
     }
 
-    def markSelected() ={
+    def markSelected() = {
         selectedDices.foreach{
             case x:Int =>
                 val point = centerPoints(x)
-                gc.setFill(Color.Blue)
+                val diceValue = lastDices(x)
+                val howManySameNumber = selectedDices.map(elem => lastDices(elem))
+                                            .filter(elem => elem==diceValue).length
+                val color = if(!Array(1,5).contains(diceValue) && howManySameNumber<3) Color.Red else Color.Blue
+                gc.setFill(color)
                 val size = Math.min(getWidth,getHeight)/3
                 val sqrtTwo = Math.sqrt(2)
                 gc.fillOval(point._1-size/5,point._2-size/5,size*sqrtTwo,size*sqrtTwo)

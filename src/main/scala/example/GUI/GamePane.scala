@@ -41,8 +41,6 @@ object GamePane{
     gameCanvas.width.addListener(listener)
     gameCanvas.height.addListener(listener)
 
-    mapPainter.addClickListener()
-
 
     val btnResumeText = "Resume simulation"
     val btnStopText = "Stop simulation"
@@ -69,6 +67,7 @@ object GamePane{
         }
 
         if(player!=null){
+            mapPainter.addClickListener()
             val btnRoll = new Button("Roll next")
             val btnEnd = new Button("End rolling")
             btnRoll.onAction = (e:ActionEvent) => {
@@ -76,14 +75,14 @@ object GamePane{
                 if(player.checkIfPossibleToTake(selectedDices)){
                     player.setMove(RollAgain(selectedDices))
                     player.isSelected = true
-                }
+                }else mapPainter.drawAlert("Not possible move")
             }   
             btnEnd.onAction = (e:ActionEvent) => {
                 val selectedDices = mapPainter.getSelectedDices()
                 if(player.checkIfPossibleToTake(selectedDices)){
                     player.setMove(Finish(selectedDices))
                     player.isSelected = true
-                }
+                }else mapPainter.drawAlert("Not possible move")
             }
             btnList = btnList ++ List(btnRoll,btnEnd)    
         }
