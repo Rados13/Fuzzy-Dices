@@ -11,6 +11,7 @@ object Bot{
     val param3 = "jaka_wartosc_sie_powtarza_najczesciej"
     val param4 = "liczba_kosci"
     val result = "wynik"
+    val fis:FIS = FIS.load(Bot.fileName,false);
 }
 
 class Bot() extends Player{
@@ -34,17 +35,15 @@ class Bot() extends Player{
 
 
     def makeMove(dices:List[Int]) = {
-        val fis:FIS = FIS.load(Bot.fileName,false);
-        val fuzzyRuleSet:FuzzyRuleSet = fis.getFuzzyRuleSet();
         val occurencesArr = DicesSet.getOccurencesOfValue(dices)
         val howManyRepeat = DicesSet.getHowManyValuesRepeat(occurencesArr)
         val whatRepeatMostOfTime = DicesSet.getWhatRepeatMostOfTime(occurencesArr)
+        val fuzzyRuleSet:FuzzyRuleSet = Bot.fis.getFuzzyRuleSet();
         fuzzyRuleSet.setVariable(Bot.param1,score)
         fuzzyRuleSet.setVariable(Bot.param2,howManyRepeat)
         fuzzyRuleSet.setVariable(Bot.param3,whatRepeatMostOfTime)
         fuzzyRuleSet.setVariable(Bot.param4,dices.size)
         fuzzyRuleSet.evaluate()
-        println(fuzzyRuleSet.getVariable(Bot.result).defuzzify())
         fuzzyRuleSet.getVariable(Bot.result).defuzzify() match {
             case x if x <= -10  => Finish(findMaximalMove(occurencesArr))
             case x if x <= 0  => Finish(findMinimalMove(occurencesArr))

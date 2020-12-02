@@ -13,7 +13,7 @@ lazy val root = (project in file("."))
     name := "fuzzy-network",
     libraryDependencies ++= Seq(
       scalaTest % Test,
-      "org.scalafx" %% "scalafx" % "14-R19",
+      "org.scalafx" %% "scalafx" % "14-R19"
     )
   )
 
