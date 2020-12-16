@@ -44,10 +44,10 @@ class Bot() extends Player{
         fuzzyRuleSet.setVariable(Bot.param3,whatRepeatMostOfTime)
         fuzzyRuleSet.setVariable(Bot.param4,dices.size)
         fuzzyRuleSet.evaluate()
+        val result = fuzzyRuleSet.getVariable(Bot.result).defuzzify()
         fuzzyRuleSet.getVariable(Bot.result).defuzzify() match {
-            case x if x <= -10  => Finish(findMaximalMove(occurencesArr))
-            case x if x <= 0  => Finish(findMinimalMove(occurencesArr))
-            case x if x <= 10  => RollAgain(findMinimalMove(occurencesArr))
+            case x if x <= -1  => Finish(findMaximalMove(occurencesArr))
+            case x if x <= 1  => RollAgain(findMinimalMove(occurencesArr))
             case x  => RollAgain(findMaximalMove(occurencesArr))
         }
     }

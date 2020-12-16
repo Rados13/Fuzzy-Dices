@@ -43,12 +43,15 @@ class Game(mapPainter: MapPainter,player1:Player,player2:Player){
             var activePlayer = if(turn%2==1)player1 else player2
 
             var diceNum:Option[Int] = Some(6)
+            var last = System.currentTimeMillis()
             while(diceNum.isDefined){
-                // println(s"Turn $turn:  $status")
+                if(System.currentTimeMillis()-last>10000){
+                    last = System.currentTimeMillis()
+                    println(s"Turn $turn:  $status")
+                }
                 status match {
                     case GameStatus.Run =>
                         val dices = Seq.fill(diceNum.get)(Random.nextInt(5)+1).toList
-                        // println(s"Dices randomed ${dices.mkString(" ")}")
                         val latch = new CountDownLatch(1)
                         updateData
                         mapPainter.startAnimation(2,dices.length,latch)
@@ -73,7 +76,7 @@ class Game(mapPainter: MapPainter,player1:Player,player2:Player){
                                 diceNum = Some(if (value-dices.size==0) 6 else value-dices.size)
                         }
                     case GameStatus.Ended => diceNum = None
-                    case _ => 
+                    case _ => None
                 }
             }
         }

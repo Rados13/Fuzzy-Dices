@@ -24,6 +24,7 @@ import org.jfree.chart.ChartPanel
 import javax.swing.JFrame
 import javax.swing.WindowConstants
 import javafx.application.Platform
+import scalafx.scene.control.Label
 
 object HelpPane{
 
@@ -55,16 +56,38 @@ object HelpPane{
         hbox.setAlignment(Pos.CENTER)
         hbox.setSpacing(50)
         
+        val labelScore = new Label("Score:");
         val txFieldScore = new TextField(chartFrame.scoreProperty.toString())
         txFieldScore.textProperty().bindBidirectional(chartFrame.scoreProperty,new NumberStringConverter())
+        val hbScore = new HBox()
+        val scoreList:List[javafx.scene.Node] = List(labelScore,txFieldScore)
+        hbScore.getChildren().addAll(scoreList.asJavaCollection)
+
+        
+        val labelRepeated = new Label("Repeated:")
         val txFieldRepeated = new TextField(chartFrame.repeatedProperty.toString())
         txFieldRepeated.textProperty().bindBidirectional(chartFrame.repeatedProperty,new NumberStringConverter())
+        val hbRepeated = new HBox()
+        val repeatedList:List[javafx.scene.Node] = List(labelRepeated,txFieldRepeated)
+        hbRepeated.getChildren().addAll(repeatedList.asJavaCollection)
+
+
+        val labelWhich = new Label("Which repeated most:")
         val txFieldWhich = new TextField(chartFrame.whichDiceRepeatedMostProperty.toString())
         txFieldWhich.textProperty().bindBidirectional(chartFrame.whichDiceRepeatedMostProperty,new NumberStringConverter())
+        val hbWhich = new HBox()
+        val whichList:List[javafx.scene.Node] = List(labelWhich,txFieldWhich)
+        hbWhich.getChildren().addAll(whichList.asJavaCollection)
+
+
+        val labelDices = new Label("Dices num:")
         val txFieldDices = new TextField(chartFrame.dicesNumProperty.toString())
         txFieldDices.textProperty().bindBidirectional(chartFrame.dicesNumProperty,new NumberStringConverter())
+        val hbDices = new HBox()
+        val dicesList:List[javafx.scene.Node] = List(labelDices,txFieldDices)
+        hbDices.getChildren().addAll(dicesList.asJavaCollection)
 
-        var txFieldList:List[javafx.scene.Node] = List(txFieldScore,txFieldRepeated,txFieldWhich,txFieldDices)
+        var txFieldList:List[javafx.scene.Node] = List(hbScore,hbWhich,hbRepeated,hbDices)
         hbox.getChildren().addAll(txFieldList.asJavaCollection)
         hbox
     }

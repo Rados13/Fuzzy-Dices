@@ -235,16 +235,13 @@ class MapPainter(gc:GraphicsContext){
 
 
             val size = Math.min(width,height) / 3
-            // println(s"Clicked: $x  $y \t Size: $size")
             centerPoints.zipWithIndex.foreach{ 
                 case pointIdx:((Double,Double),Int) => {
                     val point = pointIdx._1
                     val idx = pointIdx._2
-                    // println(s"Point $idx: $point ${(point._1-x).abs}  ${(point._2-y).abs}")
                     val diffX = x-point._1
                     val diffY = y-point._2
                     if(diffX>= 0 && diffX <= size && diffY>=0 && diffY <= size) {
-                        println(s"Point $idx")
                         if(selectedDices.contains(idx)) selectedDices = selectedDices.filter(elem => elem!=idx)
                         else selectedDices = selectedDices :+ idx
                         drawBoard(lastDices) 

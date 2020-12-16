@@ -56,7 +56,9 @@ object Hello extends JFXApp {
     val task = new Task[Unit]{ override def call(): Unit = game.startGame()}
     val btnsFunctions:Array[() => Unit] = Array(
       startMenu,
-      () => {game.status = game.status match {
+      () => {
+        println(s"${game.status}")
+        game.status = game.status match {
         case GameStatus.Run => GameStatus.Stoped
         case GameStatus.Stoped => GameStatus.Run
         case _ => GameStatus.Ended

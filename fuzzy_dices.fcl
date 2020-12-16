@@ -10,8 +10,8 @@ wynik : REAL;
 END_VAR
 FUZZIFY zebrane_juz_punkty
 TERM malo := (0, 1) (200, 1) (250, 0.5) (300,0);
-TERM srednio := (200, 0) (250,0.5) (300,1) (400, 1) (500,0.5) (600, 0);
-TERM duzo := (0, 0) (450,0) (500,0.5) (600,1);
+TERM srednio := (200, 0) (250,0.5) (300,1) (400, 1) (450,0.5) (500, 0);
+TERM duzo := (0, 0) (400,0) (450,0.5) (500,1) (2000,1);
 END_FUZZIFY
 FUZZIFY ile_razy_wartosci_sie_powtarzaja
 TERM malo := (1, 1) (2, 0.5) (3, 0);
@@ -19,10 +19,9 @@ TERM srednio := (1,0) (2, 0.5) (3, 1) (4, 0.5) (5, 0);
 TERM duzo := (3, 0) (4, 0.50) (5, 1);
 END_FUZZIFY
 FUZZIFY jaka_wartosc_sie_powtarza_najczesciej
-TERM specjalna := (1, 1) (2, 0) (4,0) (5, 1) (6, 0);
 TERM malo_warta := (1, 0) (2, 1) (2.5, 0.5) (3, 0);
-TERM srednio_warta := (2,0) (2.5,0.5) (3, 1) (4, 0.5) (5, 0);
-TERM duzo_warta := (1,1) (2, 0) (3,0) (4, 0.50) (5, 1) (6, 1);
+TERM srednio_warta := (2,0) (2.5,0.5) (3, 1) (4, 0.5) (4.5, 0);
+TERM duzo_warta := (1,1) (2, 0) (3,0) (4, 0.50) (4.5, 1) (6, 1);
 END_FUZZIFY
 FUZZIFY liczba_kosci
 TERM malo := (1, 1) (2, 0.5) (3, 0);
@@ -30,10 +29,9 @@ TERM srednio := (1,0) (2, 0.5) (3, 1) (4, 0.5) (5, 0);
 TERM duzo := (3,0) (4,0.5) (5, 1);
 END_FUZZIFY
 DEFUZZIFY wynik
-TERM wez_najwiecej_rzucaj_dalej := (9, 0) (10, 0.5) (15, 1) ;
-TERM wez_najmniej_rzucaj_dalej := (-1, 0) (0, 0.5) (5, 1) (10, 0.5) (11, 0);
-TERM wez_najmniej_skoncz := (-11, 0) (-10, 0.5) (-5, 1) (0, 0.5) (1, 0);
-TERM wez_najwiecej_skoncz := (-15, 1) (-10, 0.5) (-9, 0);
+TERM wez_najwiecej_rzucaj_dalej := (1, 0) (1.5, 1) (15, 1) ;
+TERM wez_najmniej_rzucaj_dalej := (-1.5, 0) (-1, 1) (1,1) (1.5, 0);
+TERM wez_najwiecej_skoncz := (-15, 1) (-1.5,1) (-1, 0) ;
 METHOD : COG;
 DEFAULT := 0;
 END_DEFUZZIFY
@@ -43,27 +41,24 @@ ACT: MIN;
 
 
 
-RULE 0: IF zebrane_juz_punkty IS malo AND ile_razy_wartosci_sie_powtarzaja IS malo AND jaka_wartosc_sie_powtarza_najczesciej IS specjalna THEN wynik IS wez_najwiecej_rzucaj_dalej;
-RULE 1: IF zebrane_juz_punkty IS malo AND ile_razy_wartosci_sie_powtarzaja IS malo AND jaka_wartosc_sie_powtarza_najczesciej IS malo_warta AND liczba_kosci IS duzo THEN wynik IS wez_najmniej_rzucaj_dalej;
-RULE 2: IF zebrane_juz_punkty IS malo AND ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS srednio THEN wynik IS wez_najwiecej_rzucaj_dalej;
-RULE 3: IF zebrane_juz_punkty IS malo AND ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS malo THEN wynik IS wez_najwiecej_rzucaj_dalej;
+RULE 0: IF zebrane_juz_punkty IS malo AND ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS duzo THEN wynik IS wez_najmniej_rzucaj_dalej;
+RULE 1: IF zebrane_juz_punkty IS malo AND ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS malo THEN wynik IS wez_najwiecej_rzucaj_dalej;
 
-RULE 4: IF ile_razy_wartosci_sie_powtarzaja IS duzo AND jaka_wartosc_sie_powtarza_najczesciej IS specjalna THEN wynik IS wez_najwiecej_skoncz;
-RULE 5: IF ile_razy_wartosci_sie_powtarzaja IS duzo AND jaka_wartosc_sie_powtarza_najczesciej IS duzo_warta THEN wynik IS wez_najwiecej_skoncz;
+RULE 2: IF ile_razy_wartosci_sie_powtarzaja IS duzo AND jaka_wartosc_sie_powtarza_najczesciej IS malo_warta AND liczba_kosci IS duzo THEN wynik IS wez_najwiecej_rzucaj_dalej;
+RULE 3: IF ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS NOT duzo THEN wynik IS wez_najmniej_rzucaj_dalej;
 
-RULE 6: IF ile_razy_wartosci_sie_powtarzaja IS duzo AND jaka_wartosc_sie_powtarza_najczesciej IS malo_warta AND liczba_kosci IS duzo THEN wynik IS wez_najwiecej_rzucaj_dalej;
-RULE 6: IF ile_razy_wartosci_sie_powtarzaja IS srednio AND liczba_kosci IS srednio THEN wynik IS wez_najwiecej_rzucaj_dalej;
-RULE 7: IF ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS malo THEN wynik IS wez_najwiecej_rzucaj_dalej;
+RULE 4: IF ile_razy_wartosci_sie_powtarzaja IS NOT malo AND jaka_wartosc_sie_powtarza_najczesciej IS duzo_warta THEN wynik IS wez_najwiecej_skoncz;
+RULE 5: IF ile_razy_wartosci_sie_powtarzaja IS srednio AND liczba_kosci IS srednio THEN wynik IS wez_najwiecej_rzucaj_dalej;
+RULE 6: IF ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS malo THEN wynik IS wez_najwiecej_rzucaj_dalej;
 
-RULE 8: IF ile_razy_wartosci_sie_powtarzaja IS srednio AND  liczba_kosci IS srednio THEN wynik IS wez_najwiecej_rzucaj_dalej;
-RULE 9: IF ile_razy_wartosci_sie_powtarzaja IS srednio AND  jaka_wartosc_sie_powtarza_najczesciej IS malo_warta THEN wynik IS wez_najmniej_rzucaj_dalej;
+RULE 7: IF zebrane_juz_punkty IS NOT duzo AND ile_razy_wartosci_sie_powtarzaja IS srednio AND  liczba_kosci IS srednio THEN wynik IS wez_najwiecej_rzucaj_dalej;
+RULE 8: IF ile_razy_wartosci_sie_powtarzaja IS srednio AND  jaka_wartosc_sie_powtarza_najczesciej IS malo_warta THEN wynik IS wez_najmniej_rzucaj_dalej;
+RULE 9: IF ile_razy_wartosci_sie_powtarzaja IS srednio AND  liczba_kosci IS duzo THEN wynik IS wez_najwiecej_rzucaj_dalej;
 
-RULE 10: IF zebrane_juz_punkty IS duzo AND ile_razy_wartosci_sie_powtarzaja IS malo THEN wynik IS wez_najwiecej_skoncz;
-RULE 11: IF zebrane_juz_punkty IS duzo AND ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS duzo THEN wynik IS wez_najwiecej_rzucaj_dalej;
-RULE 12: IF zebrane_juz_punkty IS duzo AND ile_razy_wartosci_sie_powtarzaja IS srednio AND jaka_wartosc_sie_powtarza_najczesciej IS malo_warta AND liczba_kosci IS duzo THEN wynik IS wez_najmniej_rzucaj_dalej;
-RULE 13: IF zebrane_juz_punkty IS duzo AND ile_razy_wartosci_sie_powtarzaja IS srednio AND jaka_wartosc_sie_powtarza_najczesciej IS malo_warta AND liczba_kosci IS srednio THEN wynik IS wez_najwiecej_skoncz;
-RULE 14: IF zebrane_juz_punkty IS duzo AND ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS malo THEN wynik IS wez_najwiecej_skoncz;
-
+RULE 10: IF zebrane_juz_punkty IS duzo AND ile_razy_wartosci_sie_powtarzaja IS duzo THEN wynik IS wez_najwiecej_skoncz;
+RULE 11: IF zebrane_juz_punkty IS duzo AND ile_razy_wartosci_sie_powtarzaja IS srednio AND jaka_wartosc_sie_powtarza_najczesciej IS malo_warta AND liczba_kosci IS duzo THEN wynik IS wez_najmniej_rzucaj_dalej;
+RULE 12: IF zebrane_juz_punkty IS duzo AND ile_razy_wartosci_sie_powtarzaja IS srednio AND liczba_kosci IS srednio THEN wynik IS wez_najwiecej_skoncz;
+RULE 13: IF zebrane_juz_punkty IS duzo AND ile_razy_wartosci_sie_powtarzaja IS malo AND liczba_kosci IS malo THEN wynik IS wez_najwiecej_skoncz;
 
 
 END_RULEBLOCK
