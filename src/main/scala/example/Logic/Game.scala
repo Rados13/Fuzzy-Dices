@@ -58,22 +58,25 @@ class Game(mapPainter: MapPainter,player1:Player,player2:Player){
                         latch.await()
                         mapPainter.drawBoard(dices)
                         Thread.sleep(2000)
-                        if(!isPossibleMove(dices)) diceNum = None
-                        (diceNum,activePlayer.makeMove(dices)) match {
-                            case (_,null) =>
-                                diceNum = None
-                            case (None,_) => 
-                                nextTurn()
-                                diceNum = None
-                                mapPainter.drawAlert()
-                                Thread.sleep(2000)
-                            case (Some(value),Finish(dices)) => 
-                                calculateScore(dices)
-                                nextTurn(true)
-                                diceNum = None
-                            case (Some(value),RollAgain(dices)) => 
-                                calculateScore(dices)
-                                diceNum = Some(if (value-dices.size==0) 6 else value-dices.size)
+                        if(!isPossibleMove(dices)){
+                            nextTurn()
+                            diceNum = None
+                            mapPainter.drawAlert()
+                            Thread.sleep(2000)
+                        }else{
+                            (diceNum,activePlayer.makeMove(dices)) match {
+                                case (_,null) =>
+                                    diceNum = None
+                                case (None, _) => 
+                                    diceNum = None
+                                case (Some(value),Finish(dices)) => 
+                                    calculateScore(dices)
+                                    nextTurn(true)
+                                    diceNum = None
+                                case (Some(value),RollAgain(dices)) => 
+                                    calculateScore(dices)
+                                    diceNum = Some(if (value-dices.size==0) 6 else value-dices.size)
+                            }
                         }
                     case GameStatus.Ended => diceNum = None
                     case _ => None

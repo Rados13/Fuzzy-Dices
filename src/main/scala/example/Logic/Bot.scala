@@ -6,11 +6,11 @@ import example.Logic.DicesSet
 
 object Bot{
     val fileName = "fuzzy_dices.fcl"
-    val param1 = "zebrane_juz_punkty"
-    val param2 = "ile_razy_wartosci_sie_powtarzaja"
-    val param3 = "jaka_wartosc_sie_powtarza_najczesciej"
-    val param4 = "liczba_kosci"
-    val result = "wynik"
+    val param1 = "gathered_points"
+    val param2 = "how_many_repeated_values"
+    val param3 = "what_repeated_most"
+    val param4 = "dices_number"
+    val result = "score"
     val fis:FIS = FIS.load(Bot.fileName,false);
 }
 
